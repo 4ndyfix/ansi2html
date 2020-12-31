@@ -4,7 +4,7 @@ require "./ansi2html.cr"
 color = 90
 ansi_text = String.build do |io|
   io << Time.utc.to_s("%A %Y-%m-%d %H:%M:%S %:z")
-    .split.map { |text| "\x1b[#{(color += 1).to_s}m#{text}\x1b[0m"}.join(" ")
+    .split.map { |text| "\x1b[#{(color += 1).to_s}m#{text}\x1b[0m" }.join(" ")
   io << "\n#{"-" * 36}\n\nImportant #{"MARVEL".colorize(:white).back(:red).bold} heroes:\n"
   io << " IRON MAN ".colorize(Colorize::Color256.new(221)).back(Colorize::Color256.new(88)).bright
   io << " " << " H U L K ".colorize(:black).back(Colorize::Color256.new(22)).bold.underline << " "
