@@ -18,7 +18,6 @@ The basic work was done by the Ruby community. Many thanks to
 By using the Colorize module for input: ColorANSI, Color256, ColorRGB and available text decorations can be mixed-used. True-color (24-bit RGB) support was added.
 
 [![GitHub release](https://img.shields.io/github/release/4ndyfix/ansi2html.svg)](https://github.com/4ndyfix/ansi2html/releases)
-[![Build Status](https://travis-ci.org/4ndyfix/ansi2html.svg?branch=main)](https://travis-ci.org/4ndyfix/ansi2html)
 
 ## Installation
 
