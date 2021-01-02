@@ -7,7 +7,9 @@ Converts colored terminal output to html tags.
 
 ANSI color escape sequences, created for example by the Colorize module,
 are converted to valid HTML fragments for using in a HTML document.
-One use case could be to show the output of a CLI tool in a web UI.
+
+One use case could be to build a web service for a CLI tool.
+Then show the original colored output in an integrated web UI.
 
 The basic work was done by the Ruby community. Many thanks to
 [bcat](https://github.com/rtomayko/bcat/blob/master/lib/bcat/ansi.rb) and
