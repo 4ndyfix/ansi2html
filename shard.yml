@@ -2,7 +2,7 @@ name: ansi2html
 
 description: converts colored terminal output to html tags
 
-version: v0.9.1
+version: v0.9.2
 
 authors:
   - 4ndyfix <4ndy@online.de>

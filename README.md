@@ -38,7 +38,7 @@ A very simple example.
 
 ```crystal
 require "colorize"
-require "ansi2html.cr"
+require "ansi2html"
 
 color = 90
 ansi_text = String.build do |io|
