@@ -1,6 +1,8 @@
 require "./spec_helper"
 
 describe Ansi2Html do
+  Colorize.enabled = true
+
   converter = Ansi2Html.new
 
   it "does not modify input string" do
