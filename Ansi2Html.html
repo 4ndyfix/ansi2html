@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="ansi2html">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="ansi2html">
+  <title>Ansi2Html - ansi2html HEAD</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          ansi2html
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" current" data-id="ansi2html/Ansi2Html" data-name="ansi2html">
+      <a href="Ansi2Html.html">Ansi2Html</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Ansi2Html
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Ansi2Html.html">Ansi2Html</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L1" target="_blank">
+        ansi2html.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="ANSI_ESC_SEQ_REGEX">
+        <strong>ANSI_ESC_SEQ_REGEX</strong> = <code><span class="s">/\A\x1b\[((?:\d{1,3};?)+|)m/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CHARS_TO_REMOVE_REGEX">
+        <strong>CHARS_TO_REMOVE_REGEX</strong> = <code><span class="s">/\A\x08+/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MALFORMED_SEQ_REGEX">
+        <strong>MALFORMED_SEQ_REGEX</strong> = <code><span class="s">/\A\x1b\[?[\d;]{0,3}/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PALLETE">
+        <strong>PALLETE</strong> = <code>{} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="REAL_TEXT_REGEX">
+        <strong>REAL_TEXT_REGEX</strong> = <code><span class="s">/\A([^\x1b\x08]+)/</span>m</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="STYLES">
+        <strong>STYLES</strong> = <code>{} <span class="k">of</span> <span class="t">String</span> => <span class="t">String</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#convert(input:String%7CArray(String),pallete=:linux)-instance-method" class="signature"><strong>#convert</strong>(input : String | Array(String), pallete = <span class="n">:linux</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each(&block:String-%3E)-instance-method" class="signature"><strong>#each</strong>(&block : String -> )</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#push_style(style)-instance-method" class="signature"><strong>#push_style</strong>(style)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#push_tag(tag,style=nil)-instance-method" class="signature"><strong>#push_tag</strong>(tag, style = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset_styles-instance-method" class="signature"><strong>#reset_styles</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tokenize(text,&block:Symbol,String%7CUInt8%7CTuple(UInt8,UInt8,UInt8)-%3E)-instance-method" class="signature"><strong>#tokenize</strong>(text, &block : Symbol, String | UInt8 | Tuple(UInt8, UInt8, UInt8) -> )</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L57" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="convert(input:String|Array(String),pallete=:linux)-instance-method">
+      <div class="signature">
+        
+        def <strong>convert</strong>(input : String | Array(String), pallete = <span class="n">:linux</span>)
+
+        <a class="method-permalink" href="#convert(input:String%7CArray(String),pallete=:linux)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L62" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each(&block:String->)-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>(&block : String -> )
+
+        <a class="method-permalink" href="#each(&block:String-%3E)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L77" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="push_style(style)-instance-method">
+      <div class="signature">
+        
+        def <strong>push_style</strong>(style)
+
+        <a class="method-permalink" href="#push_style(style)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L130" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="push_tag(tag,style=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>push_tag</strong>(tag, style = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#push_tag(tag,style=nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L121" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset_styles-instance-method">
+      <div class="signature">
+        
+        def <strong>reset_styles</strong>
+
+        <a class="method-permalink" href="#reset_styles-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L134" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tokenize(text,&block:Symbol,String|UInt8|Tuple(UInt8,UInt8,UInt8)->)-instance-method">
+      <div class="signature">
+        
+        def <strong>tokenize</strong>(text, &block : Symbol, String | UInt8 | Tuple(UInt8, UInt8, UInt8) -> )
+
+        <a class="method-permalink" href="#tokenize(text,&block:Symbol,String%7CUInt8%7CTuple(UInt8,UInt8,UInt8)-%3E)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/4ndyfix/ansi2html/blob/9bb236232fd8dd8e4814e5193c7cfbd76cdd20e3/src/ansi2html.cr#L139" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
